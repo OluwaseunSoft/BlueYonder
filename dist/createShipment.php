@@ -7,7 +7,7 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>Create - Shipment</title>
-        <link href="startbootstrap-new-age-gh-pages/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+        <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
         <link href="css/styles.css" rel="stylesheet" />
         <!-- <script src="https://use.fontawesome.com/1d7ada546b.js"></script> -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous"></script>

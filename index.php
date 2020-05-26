@@ -52,9 +52,10 @@
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#contact">|</a>
           </li>
-          <li class="nav-item">
+          
           <div class="dropdown show">
-  <a class="nav-link js-scroll-trigger dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <li class="nav-item">
+          <a class="nav-link js-scroll-trigger dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Sign In
   </a>
 
