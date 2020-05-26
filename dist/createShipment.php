@@ -149,9 +149,19 @@
       <!-- <img src="assets/img/location.png" style="width: 20px; height:20px;" class="img-fluid" alt=""> -->
     </div>
   </div>
+  <hr>
+  
+  <select class="form-control col-sm-5" id="inlineFormCustomSelect">
+        <option selected>Select Vehicle</option>
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+      </select>
+</div>
+<br>
   <div class="form-group row">
     <div class="col-sm-5">
-      <a class="nav-item nav-link" id="nextforshipment" class="btn btn-primary" data-toggle="tab" href="#nav-Vehicle" role="tab" aria-controls="nav-Vehicle" aria-selected="false">Next</a>
+      <a class="nav-item btn btn-info" id="nextforshipment" class="btn btn-primary" data-toggle="tab" href="#nav-Vehicle" role="tab" aria-controls="nav-Vehicle" aria-selected="false">Next</a>
     </div>
   </div>
 </form>
