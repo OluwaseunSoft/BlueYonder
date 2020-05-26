@@ -53,7 +53,35 @@
             <a class="nav-link js-scroll-trigger" href="#contact">|</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="dist\login.php">Sign In</a>
+          <div class="dropdown show">
+  <a class="nav-link js-scroll-trigger dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Sign In
+  </a>
+
+  <div class="dropdown-menu">
+  <form class="px-4 py-3">
+    <div class="form-group">
+      <label for="exampleDropdownFormEmail1">Email address</label>
+      <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="email@example.com">
+    </div>
+    <div class="form-group">
+      <label for="exampleDropdownFormPassword1">Password</label>
+      <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password">
+    </div>
+    <div class="form-check">
+      <input type="checkbox" class="form-check-input" id="dropdownCheck">
+      <label class="form-check-label" for="dropdownCheck">
+        Remember me
+      </label>
+    </div>
+    <button type="submit" class="btn btn-primary">Sign in</button>
+  </form>
+  <div class="dropdown-divider"></div>
+  <a class="dropdown-item" href="#">New around here? Sign up</a>
+  <a class="dropdown-item" href="#">Forgot password?</a>
+</div>
+</div>
+            <!-- <a class="nav-link js-scroll-trigger" href="dist\login.php">Sign In</a> -->
           </li>
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="dist\register.php">Create Account</a>
@@ -211,7 +239,7 @@
   </footer>
 
   <!-- Bootstrap core JavaScript -->
-  <script src="/startbootstrap-new-age-gh-pagesvendor/jquery/jquery.min.js"></script>
+  <script src="startbootstrap-new-age-gh-pages/vendor/jquery/jquery.min.js"></script>
   <script src="startbootstrap-new-age-gh-pages/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <!-- Plugin JavaScript -->
