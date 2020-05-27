@@ -7,12 +7,19 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>Create - Shipment</title>
-        <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+        <link href="startbootstrap-new-age-gh-pages/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
         <link href="css/styles.css" rel="stylesheet" />
         <!-- <script src="https://use.fontawesome.com/1d7ada546b.js"></script> -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous"></script>
     </head>
     <body>
+      <?php
+       if(isset($_POST['selectVehicle']))
+       {
+      $Select_name = $_POST['selectVehicle'];
+      echo $Select_name;
+       }
+      ?>
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <a class="navbar-brand" href="index.html">Start Bootstrap</a><button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button
             ><!-- Navbar Search-->
@@ -150,27 +157,36 @@
     </div>
   </div>
   <hr>
-  
-  <select class="form-control col-sm-5" id="inlineFormCustomSelect">
-        <option selected>Select Vehicle</option>
-        <option value="1">One</option>
-        <option value="2">Two</option>
-        <option value="3">Three</option>
-      </select>
-</div>
-<br>
+  <select class="form-control col-sm-5" id="inlineFormCustomSelectPref">
+    <option selected>Select Vehicle</option>
+    <span><i class="fas fa-bus"></i><option value="1">Mini Buses</option></span>
+    <option value="2">Two</option>
+    <option value="3">Three</option>
+  </select>
+  <div class="dropdown mt-5">  
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">  
+                Dropdown button  
+            </button>  
+            <div class="dropdown-menu" name="selectVehicle" id="selectVehicle">  
+              
+            <a class="dropdown-item" href="#"><i class="fa fa-home"></i>Home</a> 
+                <a class="dropdown-item" href="#"> <i class="fa fa-address-book"></i> Contact </a>  
+                <a class="dropdown-item" href="#"> <i class="fa fa-bell"></i> Notifications </a>  
+                <a class="dropdown-item" href="#"><i class="fa fa-cog"></i> Setting </a>  
+                
+              </div>  
+        </div> 
   <div class="form-group row">
     <div class="col-sm-5">
-      <a class="nav-item btn btn-info" id="nextforshipment" class="btn btn-primary" data-toggle="tab" href="#nav-Vehicle" role="tab" aria-controls="nav-Vehicle" aria-selected="false">Next</a>
+      <a class="nav-item nav-link" id="nextforshipment" class="btn btn-primary" data-toggle="tab" href="#nav-Vehicle" role="tab" aria-controls="nav-Vehicle" aria-selected="false">Next</a>
     </div>
   </div>
-</form>
+
   
   </div>
   <div class="tab-pane fade" id="nav-Vehicle" role="tabpanel" aria-labelledby="nav-Vehicle-tab">
-  <form>
+
   <br/>
-  <p>Where do you want us to pickup your item(s)?</p>
   <div class="form-group row">
   <div class="col-sm-5">
     <label>Mini Buses  <i class="fas fa-bus fa-3x"></i></label>
@@ -188,30 +204,7 @@
   
 </div>
   
-  <p>Item Description</p>
- 
-  <div class="form-group row">
-  <div class="col-sm-5">
-      <textarea class="form-control" rows="5" id="inputEmail3" placeholder="Enter item description here"></textarea>
-    </div>
-  </div>
-  <div class="form-group row">
-  <div class="col-sm-5">
-      <input type="text" class="form-control" id="inputPassword3" placeholder="Receiver's full name">
-      <!-- <img src="assets/img/location.png" style="width: 20px; height:20px;" class="img-fluid" alt=""> -->
-    </div>
-  </div>
-  <div class="form-group row">
-  <div class="col-sm-5">
-    <input type="tel" id="phone" class="form-control" name="phone" placeholder="Receiver's phone e.g 08012345678" pattern="[0-9]{11}">
-      <!-- <img src="assets/img/location.png" style="width: 20px; height:20px;" class="img-fluid" alt=""> -->
-    </div>
-  </div>
-  <div class="form-group row">
-    <div class="col-sm-5">
-      <a class="nav-item nav-link" id="nextforshipment" class="btn btn-primary" data-toggle="tab" href="#nav-Vehicle" role="tab" aria-controls="nav-Vehicle" aria-selected="false">Next</a>
-    </div>
-  </div>
+  
 </form>
 
 
