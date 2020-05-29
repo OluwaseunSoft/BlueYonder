@@ -240,11 +240,13 @@ v1 = document.getElementById("fname");
 v2 = document.getElementById("lname");
 v3 = document.getElementById("email");
 v4 = document.getElementById("mob");
+v5 = document.getElementById("RecieverPhone");
 
 flag1 = true;
 flag2 = true;
 flag3 = true;
 flag4 = true;
+flag5 = true;
 
 if(val>=1 || val==0) {
 if(v1.value == "") {
@@ -290,7 +292,18 @@ flag4 = true;
 }
 }
 
-flag = flag1 && flag2 && flag3 && flag4;
+if(val>=5 || val==0) {
+if(v5.value == "") {
+v4.style.borderColor = "red";
+flag4 = false;
+}
+else {
+v4.style.borderColor = "green";
+flag4 = true;
+}
+}
+
+flag = flag1 && flag2 && flag3 && flag4 && flag5;
 
 return flag;
 }
@@ -478,7 +491,7 @@ $(this).toggleClass('selected');
                         <div class="form-group"> <label class="form-control-label">Dropoff Location * :</label> <input type="text" id="lname" name="lname" placeholder="" class="form-control" onblur="validate1(2)"> </div>
                         <div class="form-group"> <label class="form-control-label">Item Description * :</label> <input type="text" id="email" name="email" placeholder="" class="form-control" onblur="validate1(3)"> </div>
                         <div class="form-group"> <label class="form-control-label">Reciever's Full Name * :</label> <input type="text" id="mob" name="mob" placeholder="" class="form-control" onblur="validate1(4)"> </div>
-                        <div class="form-group"> <label class="form-control-label">Reciever's Phone No. * :</label> <input type="text" id="mob" name="mob" placeholder="" class="form-control" onblur="validate1(5)"> </div>
+                        <div class="form-group"> <label class="form-control-label">Reciever's Phone No. * :</label> <input type="text" id="RecieverPhone" name="RecieverPhone" placeholder="" class="form-control" onblur="validate1(5)"> </div>
                         <button id="next2" class="btn-block btn-primary mt-3 mb-1 next mt-4" onclick="validate1(0)">NEXT<span class="fas fa-long-arrow-alt-right"></span></button> <button class="btn-block btn-secondary mt-3 mb-1 prev"><span class="fas fa-long-arrow-alt-left"></span>PREVIOUS</button>
                     </div>
                 </fieldset>
