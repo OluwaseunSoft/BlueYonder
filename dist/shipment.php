@@ -339,7 +339,6 @@ button {
                     <li class="active step0" id="step1"></li>
                     <li class="step0" id="step2"></li>
                     <li class="step0" id="step3"></li>
-                    <li class="step0" id="step4"></li>
                 </ul>
                 <fieldset class="show">
                     <div class="form-card">
@@ -372,7 +371,8 @@ button {
                         <div class="form-group"> <label class="form-control-label">Item Description * :</label> <input type="text" id="item_desc" name="item_desc" placeholder="Item Description" class="form-control" onblur="validate1(3)"> </div>
                         <div class="form-group"> <label class="form-control-label">Receiver's Full Name * :</label> <input type="text" id="receiver_name" name="receiver_name" placeholder="Receiver's Full Name" class="form-control" onblur="validate1(4)"> </div>
                         <div class="form-group"> <label class="form-control-label">Receiver's Phone No. * :</label> <input type="text" id="receiverphone" name="receiverphone" placeholder="" class="form-control" onblur="validate1(5)"> </div>
-                        <button id="next2" class="btn-block btn-primary mt-3 mb-1 next mt-4" onclick="validate1(0)">NEXT<span class="fas fa-long-arrow-alt-right"></span></button> <button class="btn-block btn-secondary mt-3 mb-1 prev"><span class="fas fa-long-arrow-alt-left"></span>PREVIOUS</button>
+                        <!-- <button id="next2" class="btn-block btn-primary mt-3 mb-1 next mt-4" onclick="validate1(0)">NEXT<span class="fas fa-long-arrow-alt-right"></span></button> <button class="btn-block btn-secondary mt-3 mb-1 prev"><span class="fas fa-long-arrow-alt-left"></span>PREVIOUS</button> -->
+                        <button id="next2" class="btn-block btn-primary mt-3 mb-1 next mt-4" onclick="validate1(0)">SUBMIT REQUEST<span class="fas fa-long-arrow-alt-right"></span></button> <button class="btn-block btn-secondary mt-3 mb-1 prev"><span class="fas fa-long-arrow-alt-left"></span>PREVIOUS</button>
                     </div>
                 </fieldset>
                 <!-- <fieldset>
@@ -390,7 +390,8 @@ button {
                                     <option>50-100 boxes</option>
                                     <option>100+ boxes</option>
                                 </select> </div>
-                        </div> <button id="next3" class="btn-block btn-primary mt-3 mb-1 next mt-4" onclick="validate2(0)">SUBMIT REQUEST<span class="fas fa-long-arrow-alt-right"></span></button> <button class="btn-block btn-secondary mt-3 mb-1 prev"><span class="fas fa-long-arrow-alt-left"></span>PREVIOUS</button>
+                        </div> 
+                        <button id="next3" class="btn-block btn-primary mt-3 mb-1 next mt-4" onclick="validate2(0)">SUBMIT REQUEST<span class="fas fa-long-arrow-alt-right"></span></button> <button class="btn-block btn-secondary mt-3 mb-1 prev"><span class="fas fa-long-arrow-alt-left"></span>PREVIOUS</button>
                     </div>
                 </fieldset> -->
                 <fieldset>
@@ -428,10 +429,10 @@ button {
         <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
         <script type='text/javascript'>
 function validate1(val) {
-v1 = document.getElementById("fname");
-v2 = document.getElementById("lname");
-v3 = document.getElementById("email");
-v4 = document.getElementById("mob");
+v1 = document.getElementById("pickup");
+v2 = document.getElementById("dropoff");
+v3 = document.getElementById("item_desc");
+v4 = document.getElementById("receiver_name");
 v5 = document.getElementById("receiverphone");
 
 flag1 = true;
@@ -500,65 +501,65 @@ flag = flag1 && flag2 && flag3 && flag4 && flag5;
 return flag;
 }
 
-function validate2(val) {
-v1 = document.getElementById("cname");
-v2 = document.getElementById("zip");
-v3 = document.getElementById("state");
-v4 = document.getElementById("city");
+// function validate2(val) {
+// v1 = document.getElementById("cname");
+// v2 = document.getElementById("zip");
+// v3 = document.getElementById("state");
+// v4 = document.getElementById("city");
 
-flag1 = true;
-flag2 = true;
-flag3 = true;
-flag4 = true;
+// flag1 = true;
+// flag2 = true;
+// flag3 = true;
+// flag4 = true;
 
-if(val>=1 || val==0) {
-if(v1.value == "") {
-v1.style.borderColor = "red";
-flag1 = false;
-}
-else {
-v1.style.borderColor = "green";
-flag1 = true;
-}
-}
+// if(val>=1 || val==0) {
+// if(v1.value == "") {
+// v1.style.borderColor = "red";
+// flag1 = false;
+// }
+// else {
+// v1.style.borderColor = "green";
+// flag1 = true;
+// }
+// }
 
-if(val>=2 || val==0) {
-if(v2.value == "") {
-v2.style.borderColor = "red";
-flag2 = false;
-}
-else {
-v2.style.borderColor = "green";
-flag2 = true;
-}
-}
+// if(val>=2 || val==0) {
+// if(v2.value == "") {
+// v2.style.borderColor = "red";
+// flag2 = false;
+// }
+// else {
+// v2.style.borderColor = "green";
+// flag2 = true;
+// }
+// }
 
-if(val>=3 || val==0) {
-if(v3.value == "") {
-v3.style.borderColor = "red";
-flag3 = false;
-}
-else {
-v3.style.borderColor = "green";
-flag3 = true;
-}
-}
+// if(val>=3 || val==0) {
+// if(v3.value == "") {
+// v3.style.borderColor = "red";
+// flag3 = false;
+// }
+// else {
+// v3.style.borderColor = "green";
+// flag3 = true;
+// }
+// }
 
-if(val>=4 || val==0) {
-if(v4.value == "") {
-v4.style.borderColor = "red";
-flag4 = false;
-}
-else {
-v4.style.borderColor = "green";
-flag4 = true;
-}
-}
+// if(val>=4 || val==0) {
+// if(v4.value == "") {
+// v4.style.borderColor = "red";
+// flag4 = false;
+// }
+// else {
+// v4.style.borderColor = "green";
+// flag4 = true;
+// }
+// }
 
-flag = flag1 && flag2 && flag3 && flag4;
+// flag = flag1 && flag2 && flag3 && flag4;
 
-return flag;
-}
+// return flag;
+// }
 
 $(document).ready(function(){
 
@@ -568,7 +569,7 @@ $(".next").click(function(){
 
 str1 = "next1";
 str2 = "next2";
-str3 = "next3";
+//str3 = "next3";
 
 if(!str2.localeCompare($(this).attr('id')) && validate1(0) == true) {
 val2 = true;
@@ -577,14 +578,9 @@ else {
 val2 = false;
 }
 
-if(!str3.localeCompare($(this).attr('id')) && validate2(0) == true) {
-val3 = true;
-}
-else {
-val3 = false;
-}
 
-if(!str1.localeCompare($(this).attr('id')) || (!str2.localeCompare($(this).attr('id')) && val2 == true) || (!str3.localeCompare($(this).attr('id')) && val3 == true)) {
+
+if(!str1.localeCompare($(this).attr('id')) || (!str2.localeCompare($(this).attr('id')) && val2 == true)) {
 current_fs = $(this).parent().parent();
 next_fs = $(this).parent().parent().next();
 
