@@ -238,8 +238,10 @@ button {
 
 
     <body>
-    <?php
+<?php
+
        require('db.php');
+
        if(isset($_REQUEST['next2']))
     {
         $pickup = stripslashes($_REQUEST['pickup']);
@@ -262,14 +264,13 @@ button {
         $result = mysqli_query($con, $query) or die(mysqli_error($con));
         //$result = mysqli_query($con, $query) 
         if($result){
-           // header("Location: listshipments.php");
-        }  
-        else{
-            echo "Error inserting";
+         header("Location: listshipments.php"); exit;
         }
               
     }
-      ?>
+?>
+
+
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <a class="navbar-brand" href="index.html">Start Bootstrap</a><button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button
             ><!-- Navbar Search-->
@@ -366,7 +367,7 @@ button {
         <div class="col-xl-5 col-lg-6 col-md-7">
             <div class="card b-0">
                 <form action="" method="post">
-                <h3 class="heading">Create A Shipment</h3>
+                <h3 class="heading">Create Shipment</h3>
                 <!-- <p class="desc">Fill out the form or call <span class="yellow-text">123 456 7891</span><br>to start protecting your business today!</p> -->
                 <ul id="progressbar" class="text-center">
                     <li class="active step0" id="step1"></li>
@@ -378,7 +379,7 @@ button {
                         <h5 class="sub-heading">Select Vehicle</h5>
                         <div class="row px-1 radio-group">
                             <div class="card-block text-center radio">
-                                <div class="image-icon"> <i class="fas fa-bus fa-5x"></i> <input type="radio" name="vehicle" style="display: none;" value="van"> </div>
+                                <div class="image-icon"> <i class="fas fa-bus fa-5x"></i> <input type="radio" name="vehicle" value="van"> </div>
                                 <p class="sub-desc">Van</p>
                             </div>
                             <div class="card-block text-center radio">
@@ -386,11 +387,11 @@ button {
                                 <p class="sub-desc">Truck</p>
                             </div>
                             <div class="card-block text-center radio">
-                                <div class="image-icon"> <i class="fas fa-truck fa-5x"></i></i> <input type="radio" name="vehicle" style="display: none;" value="minitruck"> </div>
+                                <div class="image-icon"> <i class="fas fa-truck fa-5x"></i></i> <input type="radio" name="vehicle" value="minitruck"> </div>
                                 <p class="sub-desc">Mini Truck</p>
                             </div>
                             <div class="card-block text-center radio">
-                                <div class="image-icon"> <i class="fas fa-motorcycle fa-5x"></i> <input type="radio" name="vehicle" style="display: none;" value="bike"> </div>
+                                <div class="image-icon"> <i class="fas fa-motorcycle fa-5x"></i> <input type="radio" name="vehicle" value="bike"> </div>
                                 <p class="sub-desc">Motor Bike</p>
                             </div>
                         </div> <a id="next1" class="btn-block btn-primary mt-3 mb-1 next">NEXT<span class="fas fa-long-arrow-alt-right"></span></a>
@@ -401,9 +402,9 @@ button {
                         <h5 class="sub-heading mb-4">Where Do You Want Us Pick Up Your Item(s)</h5> <label class="text-danger mb-3">* Required</label>
                         <div class="form-group"> <label class="form-control-label">Pickup Location * :</label> <input type="text" id="pickup" name="pickup" placeholder="Pick Up Location" class="form-control" onblur="validate1(1)"> </div>
                         <div class="form-group"> <label class="form-control-label">Dropoff Location * :</label> <input type="text" id="dropoff" name="dropoff" placeholder="Drop Off Location" class="form-control" onblur="validate1(2)"> </div>
-                        <div class="form-group"> <label class="form-control-label">Item Description * :</label> <input type="text" id="item_desc" name="item_desc" placeholder="Item Description" class="form-control" onblur="validate1(3)"> </div>
+                        <div class="form-group"> <label class="form-control-label">Item Description * :</label> <textarea type="text" id="item_desc" name="item_desc" rows="5" placeholder="Item Description" class="form-control" onblur="validate1(3)"> </textarea> </div>
                         <div class="form-group"> <label class="form-control-label">Receiver's Full Name * :</label> <input type="text" id="receiver_name" name="receiver_name" placeholder="Receiver's Full Name" class="form-control" onblur="validate1(4)"> </div>
-                        <div class="form-group"> <label class="form-control-label">Receiver's Phone No. * :</label> <input type="text" id="receiverphone" name="receiverphone" placeholder="" class="form-control" onblur="validate1(5)"> </div>
+                        <div class="form-group"> <label class="form-control-label">Receiver's Phone No. * :</label> <input type="text" id="receiverphone" name="receiverphone" placeholder="08012345678" class="form-control" onblur="validate1(5)"> </div>
                         <!-- <button id="next2" class="btn-block btn-primary mt-3 mb-1 next mt-4" onclick="validate1(0)">NEXT<span class="fas fa-long-arrow-alt-right"></span></button> <button class="btn-block btn-secondary mt-3 mb-1 prev"><span class="fas fa-long-arrow-alt-left"></span>PREVIOUS</button> -->
                         <button id="next2" name="next2" class="btn-block btn-primary mt-3 mb-1 next mt-4" type="sumbit" onclick="validate1(0)">SUBMIT REQUEST<span class="fas fa-long-arrow-alt-right"></span></button> <button class="btn-block btn-secondary mt-3 mb-1 prev"><span class="fas fa-long-arrow-alt-left"></span>PREVIOUS</button>
                     </div>
