@@ -249,7 +249,7 @@ button {
         $dropoff = mysqli_real_escape_string($con, $dropoff);
         $item_desc = stripslashes($_REQUEST['item_desc']);
         $item_desc = mysqli_real_escape_string($con, $item_desc);
-        $receivername = stripslashes($_REQUEST['receivername']);
+        $receivername = stripslashes($_REQUEST['receiver_name']);
         $receivername = mysqli_real_escape_string($con, $receivername);
         $receiverphone = stripslashes($_REQUEST['receiverphone']);
         $vehicle = stripslashes($_REQUEST['vehicle']);
@@ -257,12 +257,16 @@ button {
         $vehicle = mysqli_real_escape_string($con, $vehicle);
         
         $created_datetime = date("Y-m-d H:i:s");
-        $query = "INSERT into `shipment_log` (userdId, vehicle_type, pickup_loc, dropoff_loc, item_desc, receiver_name, receiver_phone, created_date)
+        $query = "INSERT into `shipment_log` (userId, vehicle_type, pickup_loc, dropoff_loc, item_desc, receiver_name, receiver_phone, created_date)
                     VALUES ('2', '$vehicle', '$pickup', '$dropoff', '$item_desc', '$receivername', '$receiverphone', '$created_datetime')";
-        $result = mysqli_query($con, $query);
+        $result = mysqli_query($con, $query) or die(mysqli_error($con));
+        //$result = mysqli_query($con, $query) 
         if($result){
-            header("Location: listshipments.php");
+           // header("Location: listshipments.php");
         }  
+        else{
+            echo "Error inserting";
+        }
               
     }
       ?>
@@ -374,22 +378,22 @@ button {
                         <h5 class="sub-heading">Select Vehicle</h5>
                         <div class="row px-1 radio-group">
                             <div class="card-block text-center radio">
-                                <div class="image-icon"> <i class="fas fa-bus fa-5x"></i> <input type="radio" id="van" name="vehichle" style="display: none;" value="van"> </div>
+                                <div class="image-icon"> <i class="fas fa-bus fa-5x"></i> <input type="radio" name="vehicle" style="display: none;" value="van"> </div>
                                 <p class="sub-desc">Van</p>
                             </div>
                             <div class="card-block text-center radio">
-                                <div class="image-icon"> <i class="fas fa-truck-moving fa-5x"></i><input type="radio" id="truck" name="vehichle" style="display: none;" value="truck"> </div>
+                                <div class="image-icon"> <i class="fas fa-truck-moving fa-5x"></i><input type="radio" name="vehicle"  value="truck"> </div>
                                 <p class="sub-desc">Truck</p>
                             </div>
                             <div class="card-block text-center radio">
-                                <div class="image-icon"> <i class="fas fa-truck fa-5x"></i></i> <i class="fas fa-truck-moving fa-5x"></i><input type="radio" id="mini" name="vehichle" style="display: none;" value="minitruck"> </div>
+                                <div class="image-icon"> <i class="fas fa-truck fa-5x"></i></i> <input type="radio" name="vehicle" style="display: none;" value="minitruck"> </div>
                                 <p class="sub-desc">Mini Truck</p>
                             </div>
                             <div class="card-block text-center radio">
-                                <div class="image-icon"> <i class="fas fa-motorcycle fa-5x"></i> <input type="radio" id="bike" name="vehichle" style="display: none;" value="bike"> </div>
+                                <div class="image-icon"> <i class="fas fa-motorcycle fa-5x"></i> <input type="radio" name="vehicle" style="display: none;" value="bike"> </div>
                                 <p class="sub-desc">Motor Bike</p>
                             </div>
-                        </div> <button id="next1" class="btn-block btn-primary mt-3 mb-1 next">NEXT<span class="fas fa-long-arrow-alt-right"></span></button>
+                        </div> <a id="next1" class="btn-block btn-primary mt-3 mb-1 next">NEXT<span class="fas fa-long-arrow-alt-right"></span></a>
                     </div>
                 </fieldset>
                 <fieldset>
