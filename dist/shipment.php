@@ -6,11 +6,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Static Navigation - SB Admin</title>
+        <title>Logistics - Shipment</title>
         <link href="css/styles.css" rel="stylesheet" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous"></script>
 
-        <style>
+<style>
 body {
     color: #000;
     overflow-x: hidden;
@@ -232,9 +232,11 @@ button {
 .fa-long-arrow-left {
     float: left;
     margin-top: 4px
-}</style>
+}
+</style>
+ </head>
 
-    </head>
+
     <body>
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <a class="navbar-brand" href="index.html">Start Bootstrap</a><button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button
@@ -365,15 +367,15 @@ button {
                 <fieldset>
                     <div class="form-card">
                         <h5 class="sub-heading mb-4">Where Do You Want Us Pick Up Your Item(s)</h5> <label class="text-danger mb-3">* Required</label>
-                        <div class="form-group"> <label class="form-control-label">Pickup Location * :</label> <input type="text" id="fname" name="fname" placeholder="" class="form-control" onblur="validate1(1)"> </div>
-                        <div class="form-group"> <label class="form-control-label">Dropoff Location * :</label> <input type="text" id="lname" name="lname" placeholder="" class="form-control" onblur="validate1(2)"> </div>
-                        <div class="form-group"> <label class="form-control-label">Item Description * :</label> <input type="text" id="email" name="email" placeholder="" class="form-control" onblur="validate1(3)"> </div>
-                        <div class="form-group"> <label class="form-control-label">Reciever's Full Name * :</label> <input type="text" id="mob" name="mob" placeholder="" class="form-control" onblur="validate1(4)"> </div>
-                        <div class="form-group"> <label class="form-control-label">Reciever's Phone No. * :</label> <input type="text" id="RecieverPhone" name="RecieverPhone" placeholder="" class="form-control" onblur="validate1(5)"> </div>
+                        <div class="form-group"> <label class="form-control-label">Pickup Location * :</label> <input type="text" id="pickup" name="pickup" placeholder="Pick Up Location" class="form-control" onblur="validate1(1)"> </div>
+                        <div class="form-group"> <label class="form-control-label">Dropoff Location * :</label> <input type="text" id="dropoff" name="dropoff" placeholder="Drop Off Location" class="form-control" onblur="validate1(2)"> </div>
+                        <div class="form-group"> <label class="form-control-label">Item Description * :</label> <input type="text" id="item_desc" name="item_desc" placeholder="Item Description" class="form-control" onblur="validate1(3)"> </div>
+                        <div class="form-group"> <label class="form-control-label">Receiver's Full Name * :</label> <input type="text" id="receiver_name" name="receiver_name" placeholder="Receiver's Full Name" class="form-control" onblur="validate1(4)"> </div>
+                        <div class="form-group"> <label class="form-control-label">Receiver's Phone No. * :</label> <input type="text" id="receiverphone" name="receiverphone" placeholder="" class="form-control" onblur="validate1(5)"> </div>
                         <button id="next2" class="btn-block btn-primary mt-3 mb-1 next mt-4" onclick="validate1(0)">NEXT<span class="fas fa-long-arrow-alt-right"></span></button> <button class="btn-block btn-secondary mt-3 mb-1 prev"><span class="fas fa-long-arrow-alt-left"></span>PREVIOUS</button>
                     </div>
                 </fieldset>
-                <fieldset>
+                <!-- <fieldset>
                     <div class="form-card">
                         <h5 class="sub-heading mb-4">Company Details</h5> <label class="text-danger mb-3">* Required</label>
                         <div class="form-group"> <label class="form-control-label">Company Name * :</label> <input type="text" id="cname" name="cname" placeholder="" class="form-control" onblur="validate2(1)"> </div>
@@ -390,7 +392,7 @@ button {
                                 </select> </div>
                         </div> <button id="next3" class="btn-block btn-primary mt-3 mb-1 next mt-4" onclick="validate2(0)">SUBMIT REQUEST<span class="fas fa-long-arrow-alt-right"></span></button> <button class="btn-block btn-secondary mt-3 mb-1 prev"><span class="fas fa-long-arrow-alt-left"></span>PREVIOUS</button>
                     </div>
-                </fieldset>
+                </fieldset> -->
                 <fieldset>
                     <div class="form-card">
                         <h5 class="sub-heading mb-4">Success!</h5>
@@ -430,7 +432,7 @@ v1 = document.getElementById("fname");
 v2 = document.getElementById("lname");
 v3 = document.getElementById("email");
 v4 = document.getElementById("mob");
-v5 = document.getElementById("RecieverPhone");
+v5 = document.getElementById("receiverphone");
 
 flag1 = true;
 flag2 = true;
