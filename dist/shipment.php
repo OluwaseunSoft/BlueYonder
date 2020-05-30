@@ -252,14 +252,16 @@ button {
         $receivername = stripslashes($_REQUEST['receivername']);
         $receivername = mysqli_real_escape_string($con, $receivername);
         $receiverphone = stripslashes($_REQUEST['receiverphone']);
+        $vehicle = stripslashes($_REQUEST['vehicle']);
         $receiverphone = mysqli_real_escape_string($con, $receiverphone);
+        $vehicle = mysqli_real_escape_string($con, $vehicle);
         
         $created_datetime = date("Y-m-d H:i:s");
-        $query = "INSERT into `logistic_users` (first_name, last_name, email, password, created_date)
-                    VALUES ('$firstname', '$lastname', '$email', '" .md5($password). "', '$created_datetime')";
+        $query = "INSERT into `shipment_log` (userdId, vehicle_type, pickup_loc, dropoff_loc, item_desc, receiver_name, receiver_phone, created_date)
+                    VALUES ('2', '$vehicle', '$pickup', '$dropoff', '$item_desc', '$receivername', '$receiverphone', '$created_datetime')";
         $result = mysqli_query($con, $query);
         if($result){
-            header("Location: index.php");
+            header("Location: listshipments.php");
         }  
               
     }
@@ -528,6 +530,11 @@ flag = flag1 && flag2 && flag3 && flag4 && flag5;
 
 return flag;
 }
+
+// function validate4(val)
+// {
+//     v1
+// }
 
 // function validate2(val) {
 // v1 = document.getElementById("cname");
