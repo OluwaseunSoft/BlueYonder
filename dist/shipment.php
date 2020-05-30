@@ -240,6 +240,32 @@ button {
     <body>
     <?php
        require('db.php');
+       if(isset($_REQUEST['email']))
+    {
+        $firstname = stripslashes($_REQUEST['firstname']);
+        $lastname = stripslashes($_REQUEST['lastname']);
+
+        $firstname = mysqli_real_escape_string($con, $firstname);
+        $email = stripslashes($_REQUEST['email']);
+        $email = mysqli_real_escape_string($con, $email);
+        $password = stripslashes($_REQUEST['password']);
+        $password = mysqli_real_escape_string($con, $password);
+        $confirmpassword = stripslashes($_REQUEST['confirmpassword']);
+        $confirmpassword = mysqli_real_escape_string($con, $confirmpassword);
+        if($password != $confirmpassword)
+        {
+            echo("Error... Passwords do not match");
+            exit;
+        }
+        $created_datetime = date("Y-m-d H:i:s");
+        $query = "INSERT into `logistic_users` (first_name, last_name, email, password, created_date)
+                    VALUES ('$firstname', '$lastname', '$email', '" .md5($password). "', '$created_datetime')";
+        $result = mysqli_query($con, $query);
+        if($result){
+            header("Location: index.php");
+        }  
+              
+    }
       ?>
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <a class="navbar-brand" href="index.html">Start Bootstrap</a><button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button
