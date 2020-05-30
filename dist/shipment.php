@@ -240,23 +240,20 @@ button {
     <body>
     <?php
        require('db.php');
-       if(isset($_REQUEST['email']))
+       if(isset($_REQUEST['next2']))
     {
-        $firstname = stripslashes($_REQUEST['firstname']);
-        $lastname = stripslashes($_REQUEST['lastname']);
+        $pickup = stripslashes($_REQUEST['pickup']);
+        $dropoff = stripslashes($_REQUEST['dropoff']);
 
-        $firstname = mysqli_real_escape_string($con, $firstname);
-        $email = stripslashes($_REQUEST['email']);
-        $email = mysqli_real_escape_string($con, $email);
-        $password = stripslashes($_REQUEST['password']);
-        $password = mysqli_real_escape_string($con, $password);
-        $confirmpassword = stripslashes($_REQUEST['confirmpassword']);
-        $confirmpassword = mysqli_real_escape_string($con, $confirmpassword);
-        if($password != $confirmpassword)
-        {
-            echo("Error... Passwords do not match");
-            exit;
-        }
+        $pickup = mysqli_real_escape_string($con, $pickup);
+        $dropoff = mysqli_real_escape_string($con, $dropoff);
+        $item_desc = stripslashes($_REQUEST['item_desc']);
+        $item_desc = mysqli_real_escape_string($con, $item_desc);
+        $receivername = stripslashes($_REQUEST['receivername']);
+        $receivername = mysqli_real_escape_string($con, $receivername);
+        $receiverphone = stripslashes($_REQUEST['receiverphone']);
+        $receiverphone = mysqli_real_escape_string($con, $receiverphone);
+        
         $created_datetime = date("Y-m-d H:i:s");
         $query = "INSERT into `logistic_users` (first_name, last_name, email, password, created_date)
                     VALUES ('$firstname', '$lastname', '$email', '" .md5($password). "', '$created_datetime')";
@@ -362,6 +359,7 @@ button {
     <div class="row d-flex justify-content-center">
         <div class="col-xl-5 col-lg-6 col-md-7">
             <div class="card b-0">
+                <form action="" method="post">
                 <h3 class="heading">Create A Shipment</h3>
                 <!-- <p class="desc">Fill out the form or call <span class="yellow-text">123 456 7891</span><br>to start protecting your business today!</p> -->
                 <ul id="progressbar" class="text-center">
@@ -373,20 +371,20 @@ button {
                     <div class="form-card">
                         <h5 class="sub-heading">Select Vehicle</h5>
                         <div class="row px-1 radio-group">
-                            <div class="card-block text-center radio selected">
-                                <div class="image-icon"> <i class="fas fa-bus fa-5x"></i> </div>
+                            <div class="card-block text-center radio">
+                                <div class="image-icon"> <i class="fas fa-bus fa-5x"></i> <input type="radio" id="van" name="vehichle" style="display: none;" value="van"> </div>
                                 <p class="sub-desc">Van</p>
                             </div>
                             <div class="card-block text-center radio">
-                                <div class="image-icon"> <i class="fas fa-truck-moving fa-5x"></i> </div>
+                                <div class="image-icon"> <i class="fas fa-truck-moving fa-5x"></i><input type="radio" id="truck" name="vehichle" style="display: none;" value="truck"> </div>
                                 <p class="sub-desc">Truck</p>
                             </div>
                             <div class="card-block text-center radio">
-                                <div class="image-icon"> <i class="fas fa-truck fa-5x"></i></i> </div>
+                                <div class="image-icon"> <i class="fas fa-truck fa-5x"></i></i> <i class="fas fa-truck-moving fa-5x"></i><input type="radio" id="mini" name="vehichle" style="display: none;" value="minitruck"> </div>
                                 <p class="sub-desc">Mini Truck</p>
                             </div>
                             <div class="card-block text-center radio">
-                                <div class="image-icon"> <i class="fas fa-motorcycle fa-5x"></i> </div>
+                                <div class="image-icon"> <i class="fas fa-motorcycle fa-5x"></i> <input type="radio" id="bike" name="vehichle" style="display: none;" value="bike"> </div>
                                 <p class="sub-desc">Motor Bike</p>
                             </div>
                         </div> <button id="next1" class="btn-block btn-primary mt-3 mb-1 next">NEXT<span class="fas fa-long-arrow-alt-right"></span></button>
@@ -401,7 +399,7 @@ button {
                         <div class="form-group"> <label class="form-control-label">Receiver's Full Name * :</label> <input type="text" id="receiver_name" name="receiver_name" placeholder="Receiver's Full Name" class="form-control" onblur="validate1(4)"> </div>
                         <div class="form-group"> <label class="form-control-label">Receiver's Phone No. * :</label> <input type="text" id="receiverphone" name="receiverphone" placeholder="" class="form-control" onblur="validate1(5)"> </div>
                         <!-- <button id="next2" class="btn-block btn-primary mt-3 mb-1 next mt-4" onclick="validate1(0)">NEXT<span class="fas fa-long-arrow-alt-right"></span></button> <button class="btn-block btn-secondary mt-3 mb-1 prev"><span class="fas fa-long-arrow-alt-left"></span>PREVIOUS</button> -->
-                        <button id="next2" class="btn-block btn-primary mt-3 mb-1 next mt-4" onclick="validate1(0)">SUBMIT REQUEST<span class="fas fa-long-arrow-alt-right"></span></button> <button class="btn-block btn-secondary mt-3 mb-1 prev"><span class="fas fa-long-arrow-alt-left"></span>PREVIOUS</button>
+                        <button id="next2" name="next2" class="btn-block btn-primary mt-3 mb-1 next mt-4" type="sumbit" onclick="validate1(0)">SUBMIT REQUEST<span class="fas fa-long-arrow-alt-right"></span></button> <button class="btn-block btn-secondary mt-3 mb-1 prev"><span class="fas fa-long-arrow-alt-left"></span>PREVIOUS</button>
                     </div>
                 </fieldset>
                 <!-- <fieldset>
@@ -423,6 +421,7 @@ button {
                         <button id="next3" class="btn-block btn-primary mt-3 mb-1 next mt-4" onclick="validate2(0)">SUBMIT REQUEST<span class="fas fa-long-arrow-alt-right"></span></button> <button class="btn-block btn-secondary mt-3 mb-1 prev"><span class="fas fa-long-arrow-alt-left"></span>PREVIOUS</button>
                     </div>
                 </fieldset> -->
+                </form>
                 <fieldset>
                     <div class="form-card">
                         <h5 class="sub-heading mb-4">Success!</h5>
