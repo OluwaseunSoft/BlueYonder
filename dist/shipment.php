@@ -530,11 +530,11 @@ return flag;
 
 function showdetails()
 {
-    v1 = document.getElementById("pickup").value();
-    v2 = document.getElementById("dropoff").value();
-    v3 = document.getElementById("item_desc").value();
-    v4 = document.getElementById("receiver_name").value();
-    v5 = document.getElementById("receiverphone").value();
+    v1 = document.getElementById("pickup").value;
+    v2 = document.getElementById("dropoff").value;
+    v3 = document.getElementById("item_desc").value;
+    v4 = document.getElementById("receiver_name").value;
+    v5 = document.getElementById("receiverphone").value;
 
     sumdetail1 = document.getElementById("showreceivername");
     sumdetail2 = document.getElementById("showreceiverphone");
@@ -548,7 +548,7 @@ function showdetails()
     sumdetail4.innerHTML = v2;
     sumdetail5.innerHTML = v3;
 
-    console.log(sumdetail5);
+    console.log(v1, v2);
 }
 
 // function validate2(val) {
