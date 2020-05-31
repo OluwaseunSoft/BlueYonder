@@ -399,7 +399,7 @@ button {
                 </fieldset>
                 <fieldset>
                     <div class="form-card">
-                        <h5 class="sub-heading mb-4">Where Do You Want Us Pick Up Your Item(s)</h5> <label class="text-danger mb-3">* Required</label>
+                        <h5 class="sub-heading mb-4">Where Do You Want Us Pick Up Your Item(s)</h5> <label class="text-danger mb-3">Required *</label>
                         <div class="form-group"> <label class="form-control-label">Pickup Location * :</label> <input type="text" id="pickup" name="pickup" placeholder="Pick Up Location" class="form-control" onblur="validate1(1)"> </div>
                         <div class="form-group"> <label class="form-control-label">Dropoff Location * :</label> <input type="text" id="dropoff" name="dropoff" placeholder="Drop Off Location" class="form-control" onblur="validate1(2)"> </div>
                         <div class="form-group"> <label class="form-control-label">Item Description * :</label> <textarea type="text" id="item_desc" name="item_desc" rows="5" placeholder="Item Description" class="form-control" onblur="validate1(3)"></textarea> </div>
