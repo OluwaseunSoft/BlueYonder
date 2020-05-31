@@ -257,11 +257,13 @@ button {
         $vehicle = stripslashes($_REQUEST['vehicle']);
         $receiverphone = mysqli_real_escape_string($con, $receiverphone);
         $vehicle = mysqli_real_escape_string($con, $vehicle);
+        $showordernumber = stripslashes($_REQUEST['showordernumber']);
+        $showordernumber = mysqli_real_escape_string($con, $showordernumber);
         
         $created_datetime = date("Y-m-d H:i:s");
         $query = "INSERT into `shipment_log` (userId, vehicle_type, pickup_loc, dropoff_loc, item_desc, receiver_name, receiver_phone, created_date, orderId, shipment_status)".
 
-                   "VALUES ('2', '$vehicle', '$pickup', '$dropoff', '$item_desc', '$receivername', '$receiverphone', '$created_datetime', '', 'pending')";
+                   "VALUES ('2', '$vehicle', '$pickup', '$dropoff', '$item_desc', '$receivername', '$receiverphone', '$created_datetime', '$showordernumber', 'pending')";
         $result = mysqli_query($con, $query) or die(mysqli_error($con));
         //$result = mysqli_query($con, $query) 
         if($result){
@@ -418,7 +420,7 @@ button {
                         <div class="form-group"> <label class="form-control-label" style="font-weight: bold;">Pickup Location :</label> <span  id="showpickuploc"></span> </div>
                         <div class="form-group"> <label class="form-control-label" style="font-weight: bold;">Dropoff Location :</label> <span  id="showdropoffloc"></span> </div>
                         <div class="form-group"> <label class="form-control-label" style="font-weight: bold;">Item Description :</label> <span  id="showitemdesc"></span></div> 
-                        <div class="form-group"> <label class="form-control-label" style="font-weight: bold;">Order Number :</label> <span  id="showordernumber"><?Php
+                        <div class="form-group"> <label class="form-control-label" style="font-weight: bold;">Order Number :</label> <span  id="showordernumber" name="showordernumber"><?Php
 function random_generator($digits){
 srand ((double) microtime() * 10000000);
 //Array of alphabets
