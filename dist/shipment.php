@@ -242,7 +242,7 @@ button {
 
        require('db.php');
 
-       if(isset($_REQUEST['next2']))
+       if(isset($_REQUEST['next3']))
     {
         $pickup = stripslashes($_REQUEST['pickup']);
         $dropoff = stripslashes($_REQUEST['dropoff']);
@@ -257,13 +257,13 @@ button {
         $vehicle = stripslashes($_REQUEST['vehicle']);
         $receiverphone = mysqli_real_escape_string($con, $receiverphone);
         $vehicle = mysqli_real_escape_string($con, $vehicle);
-        $showordernumber = stripslashes($_REQUEST['showordernumber']);
-        $showordernumber = mysqli_real_escape_string($con, $showordernumber);
+        //$showordernumber = stripslashes($_REQUEST['ordernumber']);
+        //$showordernumber = mysqli_real_escape_string($con, $showordernumber);
         
         $created_datetime = date("Y-m-d H:i:s");
         $query = "INSERT into `shipment_log` (userId, vehicle_type, pickup_loc, dropoff_loc, item_desc, receiver_name, receiver_phone, created_date, orderId, shipment_status)".
 
-                   "VALUES ('2', '$vehicle', '$pickup', '$dropoff', '$item_desc', '$receivername', '$receiverphone', '$created_datetime', '$showordernumber', 'pending')";
+                   "VALUES ('2', '$vehicle', '$pickup', '$dropoff', '$item_desc', '$receivername', '$receiverphone', '$created_datetime', '$ordernumber', 'pending')";
         $result = mysqli_query($con, $query) or die(mysqli_error($con));
         //$result = mysqli_query($con, $query) 
         if($result){
@@ -382,19 +382,19 @@ button {
                         <h5 class="sub-heading">Select Vehicle</h5>
                         <div class="row px-1 radio-group">
                             <div class="card-block text-center radio">
-                                <div class="image-icon"> <i class="fas fa-bus fa-5x"></i> <input type="radio" name="vehicle" value="van"> </div>
+                                <div class="image-icon"> <i class="fas fa-bus fa-5x"></i> <input type="radio" name="vehicle" value="Van" onchange="showdetails()"> </div>
                                 <p class="sub-desc">Van</p>
                             </div>
                             <div class="card-block text-center radio">
-                                <div class="image-icon"> <i class="fas fa-truck-moving fa-5x"></i><input type="radio" name="vehicle"  value="truck"> </div>
+                                <div class="image-icon"> <i class="fas fa-truck-moving fa-5x"></i><input type="radio" name="vehicle"  value="Truck" onchange="showdetails()"> </div>
                                 <p class="sub-desc">Truck</p>
                             </div>
                             <div class="card-block text-center radio">
-                                <div class="image-icon"> <i class="fas fa-truck fa-5x"></i></i> <input type="radio" name="vehicle" value="minitruck"> </div>
+                                <div class="image-icon"> <i class="fas fa-truck fa-5x"></i></i> <input type="radio" name="vehicle" value="Mini Truck" onchange="showdetails()"> </div>
                                 <p class="sub-desc">Mini Truck</p>
                             </div>
                             <div class="card-block text-center radio">
-                                <div class="image-icon"> <i class="fas fa-motorcycle fa-5x"></i> <input type="radio" name="vehicle" value="bike"> </div>
+                                <div class="image-icon"> <i class="fas fa-motorcycle fa-5x"></i> <input type="radio" name="vehicle" value="Bike" onchange="showdetails()"> </div>
                                 <p class="sub-desc">Motor Bike</p>
                             </div>
                         </div> <input type="button" id="next1" class="btn-block btn-primary mt-3 mb-1 next" value="NEXT &rarr;">
@@ -429,7 +429,7 @@ $input = array ("A", "B", "C", "D", "E","F","G","H","I","J","K","L","M","N","O",
 "R","S","T","U","V","W","X","Y","Z");
 
 $random_generator="";// Initialize the string to store random numbers
-for($i=1;$i<$digits+1;$i++){ // Loop the number of times of required digits
+for($i=1;$i<$digits;$i++){ // Loop the number of times of required digits
 
 if(rand(1,2) == 1){// to decide the digit should be numeric or alphabet
 // Add one random alphabet 
@@ -448,12 +448,13 @@ $random_generator .=rand(1,10); // one number is added
 return $random_generator;
 } // end of function
 
-echo random_generator(10);
+$ordernumber = random_generator(10);
+echo $ordernumber;
 ?></span></div> 
                         <input type="submit" id="next3" class="btn-block btn-primary mt-3 mb-1 next mt-4" value="SUBMIT REQUEST"> <input type="button" class="btn-block btn-secondary mt-3 mb-1 prev" value="&larr; PREVIOUS">
                     </div>
                 </fieldset>
-                </form>
+               
                 <fieldset>
                     <div class="form-card">
                         <h5 class="sub-heading mb-4">Success!</h5>
@@ -471,6 +472,7 @@ echo random_generator(10);
                         <div style="height: 100vh;"></div>
                      
                     </div>
+    </form>
                 </main>
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid">
@@ -568,14 +570,23 @@ function showdetails()
     v3 = document.getElementById("item_desc").value;
     v4 = document.getElementById("receiver_name").value;
     v5 = document.getElementById("receiverphone").value;
-    v6 = document.getElementsByName("vehicle").value;
-    console.log(v6);
+    v6 = document.getElementsByName('vehicle');
+    for(i = 0; i < v6.length; i++)
+    {
+        sumdetail6 = document.getElementById("showvehicletype");
+        if(v6[i].checked)
+        {
+          sumdetail6.innerHTML = v6[i].value;
+        }
+       
+    }
 
     sumdetail1 = document.getElementById("showreceivername");
     sumdetail2 = document.getElementById("showreceiverphone");
     sumdetail3 = document.getElementById("showpickuploc");
     sumdetail4 = document.getElementById("showdropoffloc");
     sumdetail5 = document.getElementById("showitemdesc");
+    
 
     sumdetail1.innerHTML = v4;
     sumdetail2.innerHTML = v5;
