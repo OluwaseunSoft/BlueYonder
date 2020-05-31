@@ -415,7 +415,7 @@ button {
                         <div class="form-group"> <label class="form-control-label">Receiver Name :</label> <span  id="showreceivername"></span> </div>
                         <div class="form-group"> <label class="form-control-label">Receiver Phone Number :</label> <span  id="showreceiverphone"></span> </div>
                         <div class="form-group"> <label class="form-control-label">Pickup Location :</label> <span  id="showpickuploc"></span> </div>
-                        <div class="form-group"> <label class="form-control-label">Dropoff Location :</label> <span  id="showpickuploc"></span> </div>
+                        <div class="form-group"> <label class="form-control-label">Dropoff Location :</label> <span  id="showdropoffloc"></span> </div>
                         <div class="form-group"> <label class="form-control-label">Item Description :</label><span  id="showitemdesc"></span></div> 
                         <button id="next3" class="btn-block btn-primary mt-3 mb-1 next mt-4" onclick="validate2(0)">SUBMIT REQUEST<span class="fas fa-long-arrow-alt-right"></span></button> <button class="btn-block btn-secondary mt-3 mb-1 prev"><span class="fas fa-long-arrow-alt-left"></span>PREVIOUS</button>
                     </div>
@@ -524,7 +524,7 @@ flag5 = true;
 }
 
 flag = flag1 && flag2 && flag3 && flag4 && flag5;
-
+showdetails();
 return flag;
 }
 
@@ -536,11 +536,19 @@ function showdetails()
     v4 = document.getElementById("receiver_name").value();
     v5 = document.getElementById("receiverphone").value();
 
-    sumdetail1 = document.getElementById("pickup");
-    v2 = document.getElementById("dropoff");
-    v3 = document.getElementById("item_desc");
-    v4 = document.getElementById("receiver_name");
-    v5 = document.getElementById("receiverphone");
+    sumdetail1 = document.getElementById("showreceivername");
+    sumdetail2 = document.getElementById("showreceiverphone");
+    sumdetail3 = document.getElementById("showpickuploc");
+    sumdetail4 = document.getElementById("showdropoffloc");
+    sumdetail5 = document.getElementById("showitemdesc");
+
+    sumdetail1.innerHTML = v2;
+    sumdetail2.innerHTML = v5;
+    sumdetail3.innerHTML = v1;
+    sumdetail4.innerHTML = v2;
+    sumdetail5.innerHTML = v3;
+
+    console.log(sumdetail5);
 }
 
 // function validate2(val) {
