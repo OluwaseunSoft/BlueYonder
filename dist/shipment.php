@@ -259,8 +259,9 @@ button {
         $vehicle = mysqli_real_escape_string($con, $vehicle);
         
         $created_datetime = date("Y-m-d H:i:s");
-        $query = "INSERT into `shipment_log` (userId, vehicle_type, pickup_loc, dropoff_loc, item_desc, receiver_name, receiver_phone, created_date)
-                    VALUES ('2', '$vehicle', '$pickup', '$dropoff', '$item_desc', '$receivername', '$receiverphone', '$created_datetime')";
+        $query = "INSERT into `shipment_log` (userId, vehicle_type, pickup_loc, dropoff_loc, item_desc, receiver_name, receiver_phone, created_date, orderId, shipment_status)".
+
+                   "VALUES ('2', '$vehicle', '$pickup', '$dropoff', '$item_desc', '$receivername', '$receiverphone', '$created_datetime', '', 'pending')";
         $result = mysqli_query($con, $query) or die(mysqli_error($con));
         //$result = mysqli_query($con, $query) 
         if($result){
@@ -412,11 +413,40 @@ button {
                 <fieldset>
                     <div class="form-card">
                         <h5 class="sub-heading mb-4">Your Shipment Details</h5> 
-                        <div class="form-group"> <label class="form-control-label">Receiver Name :</label> <span  id="showreceivername"></span> </div>
-                        <div class="form-group"> <label class="form-control-label">Receiver Phone Number :</label> <span  id="showreceiverphone"></span> </div>
-                        <div class="form-group"> <label class="form-control-label">Pickup Location :</label> <span  id="showpickuploc"></span> </div>
-                        <div class="form-group"> <label class="form-control-label">Dropoff Location :</label> <span  id="showdropoffloc"></span> </div>
-                        <div class="form-group"> <label class="form-control-label">Item Description :</label> <span  id="showitemdesc"></span></div> 
+                        <div class="form-group"> <label class="form-control-label" style="font-weight: bold;">Receiver Name :</label> <span  id="showreceivername"></span> </div>
+                        <div class="form-group"> <label class="form-control-label" style="font-weight: bold;">Receiver Phone Number :</label> <span  id="showreceiverphone"></span> </div>
+                        <div class="form-group"> <label class="form-control-label" style="font-weight: bold;">Pickup Location :</label> <span  id="showpickuploc"></span> </div>
+                        <div class="form-group"> <label class="form-control-label" style="font-weight: bold;">Dropoff Location :</label> <span  id="showdropoffloc"></span> </div>
+                        <div class="form-group"> <label class="form-control-label" style="font-weight: bold;">Item Description :</label> <span  id="showitemdesc"></span></div> 
+                        <div class="form-group"> <label class="form-control-label" style="font-weight: bold;">Order Number :</label> <span  id="showordernumber"><?Php
+function random_generator($digits){
+srand ((double) microtime() * 10000000);
+//Array of alphabets
+$input = array ("A", "B", "C", "D", "E","F","G","H","I","J","K","L","M","N","O","P","Q",
+"R","S","T","U","V","W","X","Y","Z");
+
+$random_generator="";// Initialize the string to store random numbers
+for($i=1;$i<$digits+1;$i++){ // Loop the number of times of required digits
+
+if(rand(1,2) == 1){// to decide the digit should be numeric or alphabet
+// Add one random alphabet 
+$rand_index = array_rand($input);
+$random_generator .=$input[$rand_index]; // One char is added
+
+}else{
+
+// Add one numeric digit between 1 and 10
+$random_generator .=rand(1,10); // one number is added
+} // end of if else
+
+} // end of for loop 
+
+
+return $random_generator;
+} // end of function
+
+echo random_generator(10);
+?></span></div> 
                         <input type="button" id="next3" class="btn-block btn-primary mt-3 mb-1 next mt-4">SUBMIT REQUEST<span class="fas fa-long-arrow-alt-right"></span> <input type="button" class="btn-block btn-secondary mt-3 mb-1 prev">PREVIOUS<span class="fas fa-long-arrow-alt-left"></span>
                     </div>
                 </fieldset>
