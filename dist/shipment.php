@@ -267,7 +267,7 @@ button {
         $result = mysqli_query($con, $query) or die(mysqli_error($con));
         //$result = mysqli_query($con, $query) 
         if($result){
-         header("Location: listshipments.php"); exit;
+        // header("Location: listshipments.php"); exit;
         }
               
     }
@@ -397,19 +397,19 @@ button {
                                 <div class="image-icon"> <i class="fas fa-motorcycle fa-5x"></i> <input type="radio" name="vehicle" value="bike"> </div>
                                 <p class="sub-desc">Motor Bike</p>
                             </div>
-                        </div> <input type="button" id="next1" class="btn-block btn-primary mt-3 mb-1 next">NEXT<span class="fas fa-long-arrow-alt-right"></span>
+                        </div> <input type="button" id="next1" class="btn-block btn-primary mt-3 mb-1 next" value="NEXT &rarr;">
                     </div>
                 </fieldset>
                 <fieldset>
                     <div class="form-card">
                         <h5 class="sub-heading mb-4">Where Do You Want Us Pick Up Your Item(s)</h5> <label class="text-danger mb-3">Required *</label>
-                        <div class="form-group"> <label class="form-control-label">Pickup Location * :</label> <input type="text" id="pickup" name="pickup" placeholder="Pick Up Location" class="form-control" onblur="validate1(1)"> </div>
-                        <div class="form-group"> <label class="form-control-label">Dropoff Location * :</label> <input type="text" id="dropoff" name="dropoff" placeholder="Drop Off Location" class="form-control" onblur="validate1(2)"> </div>
-                        <div class="form-group"> <label class="form-control-label">Item Description * :</label> <textarea type="text" id="item_desc" name="item_desc" rows="5" placeholder="Item Description" class="form-control" onblur="validate1(3)"></textarea> </div>
-                        <div class="form-group"> <label class="form-control-label">Receiver's Full Name * :</label> <input type="text" id="receiver_name" name="receiver_name" placeholder="Receiver's Full Name" class="form-control" onblur="validate1(4)"> </div>
-                        <div class="form-group"> <label class="form-control-label">Receiver's Phone No. * :</label> <input type="text" id="receiverphone" name="receiverphone" placeholder="08012345678" class="form-control" onblur="validate1(5)"> </div>
+                        <div class="form-group"> <label class="form-control-label">Pickup Location * :</label> <input type="text" id="pickup" name="pickup" placeholder="Pick Up Location" class="form-control" onblur="validate1(1)" onchange="showdetails()"> </div>
+                        <div class="form-group"> <label class="form-control-label">Dropoff Location * :</label> <input type="text" id="dropoff" name="dropoff" placeholder="Drop Off Location" class="form-control" onblur="validate1(2)" onchange="showdetails()"> </div>
+                        <div class="form-group"> <label class="form-control-label">Item Description * :</label> <textarea type="text" id="item_desc" name="item_desc" rows="5" placeholder="Item Description" class="form-control" onblur="validate1(3)" onchange="showdetails()"></textarea> </div>
+                        <div class="form-group"> <label class="form-control-label">Receiver's Full Name * :</label> <input type="text" id="receiver_name" name="receiver_name" placeholder="Receiver's Full Name" class="form-control" onblur="validate1(4)" onchange="showdetails()"> </div>
+                        <div class="form-group"> <label class="form-control-label">Receiver's Phone No. * :</label> <input type="text" id="receiverphone" name="receiverphone" placeholder="08012345678" class="form-control" onblur="validate1(5)" onchange="showdetails()"> </div>
                         <!-- <button id="next2" class="btn-block btn-primary mt-3 mb-1 next mt-4" onclick="validate1(0)">NEXT<span class="fas fa-long-arrow-alt-right"></span></button> <button class="btn-block btn-secondary mt-3 mb-1 prev"><span class="fas fa-long-arrow-alt-left"></span>PREVIOUS</button> -->
-                        <input id="next2" name="next2" class="btn-block btn-primary mt-3 mb-1 next mt-4" type="button" value="Next" onclick="validate1(0)"/><i class="fas fa-long-arrow-alt-right"></i> <input type="button" class="btn-block btn-secondary mt-3 mb-1 prev">PREVIOUS<span class="fas fa-long-arrow-alt-left"></span>
+                        <input id="next2" name="next2" class="btn-block btn-primary mt-3 mb-1 next mt-4" value="NEXT &rarr;" onclick="validate1(0)"/> <input type="button" class="btn-block btn-secondary mt-3 mb-1 prev" value="&larr; PREVIOUS">
                     </div>
                 </fieldset>
                 <fieldset>
@@ -420,6 +420,7 @@ button {
                         <div class="form-group"> <label class="form-control-label" style="font-weight: bold;">Pickup Location :</label> <span  id="showpickuploc"></span> </div>
                         <div class="form-group"> <label class="form-control-label" style="font-weight: bold;">Dropoff Location :</label> <span  id="showdropoffloc"></span> </div>
                         <div class="form-group"> <label class="form-control-label" style="font-weight: bold;">Item Description :</label> <span  id="showitemdesc"></span></div> 
+                        <div class="form-group"> <label class="form-control-label" style="font-weight: bold;">Vehicle Type :</label> <span  id="showvehicletype"></span></div> 
                         <div class="form-group"> <label class="form-control-label" style="font-weight: bold;">Order Number :</label> <span  id="showordernumber" name="showordernumber"><?Php
 function random_generator($digits){
 srand ((double) microtime() * 10000000);
@@ -449,7 +450,7 @@ return $random_generator;
 
 echo random_generator(10);
 ?></span></div> 
-                        <input type="button" id="next3" class="btn-block btn-primary mt-3 mb-1 next mt-4">SUBMIT REQUEST<span class="fas fa-long-arrow-alt-right"></span> <input type="button" class="btn-block btn-secondary mt-3 mb-1 prev">PREVIOUS<span class="fas fa-long-arrow-alt-left"></span>
+                        <input type="submit" id="next3" class="btn-block btn-primary mt-3 mb-1 next mt-4" value="SUBMIT REQUEST"> <input type="button" class="btn-block btn-secondary mt-3 mb-1 prev" value="&larr; PREVIOUS">
                     </div>
                 </fieldset>
                 </form>
@@ -468,7 +469,7 @@ echo random_generator(10);
 
                         </div>
                         <div style="height: 100vh;"></div>
-                        <div class="card mb-4"><div class="card-body">When scrolling, the navigation stays at the top of the page. This is the end of the static navigation demo.</div></div>
+                     
                     </div>
                 </main>
                 <footer class="py-4 bg-light mt-auto">
@@ -567,6 +568,8 @@ function showdetails()
     v3 = document.getElementById("item_desc").value;
     v4 = document.getElementById("receiver_name").value;
     v5 = document.getElementById("receiverphone").value;
+    v6 = document.getElementsByName("vehicle").value;
+    console.log(v6);
 
     sumdetail1 = document.getElementById("showreceivername");
     sumdetail2 = document.getElementById("showreceiverphone");
@@ -574,7 +577,7 @@ function showdetails()
     sumdetail4 = document.getElementById("showdropoffloc");
     sumdetail5 = document.getElementById("showitemdesc");
 
-    sumdetail1.innerHTML = v2;
+    sumdetail1.innerHTML = v4;
     sumdetail2.innerHTML = v5;
     sumdetail3.innerHTML = v1;
     sumdetail4.innerHTML = v2;
