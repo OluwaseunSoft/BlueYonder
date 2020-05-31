@@ -528,10 +528,20 @@ flag = flag1 && flag2 && flag3 && flag4 && flag5;
 return flag;
 }
 
-// function validate4(val)
-// {
-//     v1
-// }
+function showdetails()
+{
+    v1 = document.getElementById("pickup").value();
+    v2 = document.getElementById("dropoff").value();
+    v3 = document.getElementById("item_desc").value();
+    v4 = document.getElementById("receiver_name").value();
+    v5 = document.getElementById("receiverphone").value();
+
+    sumdetail1 = document.getElementById("pickup");
+    v2 = document.getElementById("dropoff");
+    v3 = document.getElementById("item_desc");
+    v4 = document.getElementById("receiver_name");
+    v5 = document.getElementById("receiverphone");
+}
 
 // function validate2(val) {
 // v1 = document.getElementById("cname");
