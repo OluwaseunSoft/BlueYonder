@@ -394,7 +394,7 @@ button {
                                 <div class="image-icon"> <i class="fas fa-motorcycle fa-5x"></i> <input type="radio" name="vehicle" value="bike"> </div>
                                 <p class="sub-desc">Motor Bike</p>
                             </div>
-                        </div> <a id="next1" class="btn-block btn-primary mt-3 mb-1 next">NEXT<span class="fas fa-long-arrow-alt-right"></span></a>
+                        </div> <input type="button" id="next1" class="btn-block btn-primary mt-3 mb-1 next">NEXT<span class="fas fa-long-arrow-alt-right"></span>
                     </div>
                 </fieldset>
                 <fieldset>
@@ -406,7 +406,7 @@ button {
                         <div class="form-group"> <label class="form-control-label">Receiver's Full Name * :</label> <input type="text" id="receiver_name" name="receiver_name" placeholder="Receiver's Full Name" class="form-control" onblur="validate1(4)"> </div>
                         <div class="form-group"> <label class="form-control-label">Receiver's Phone No. * :</label> <input type="text" id="receiverphone" name="receiverphone" placeholder="08012345678" class="form-control" onblur="validate1(5)"> </div>
                         <!-- <button id="next2" class="btn-block btn-primary mt-3 mb-1 next mt-4" onclick="validate1(0)">NEXT<span class="fas fa-long-arrow-alt-right"></span></button> <button class="btn-block btn-secondary mt-3 mb-1 prev"><span class="fas fa-long-arrow-alt-left"></span>PREVIOUS</button> -->
-                        <input id="next2" name="next2" class="btn-block btn-primary mt-3 mb-1 next mt-4" type="button" value="Next" onclick="validate1(0)"/><i class="fas fa-long-arrow-alt-right"></i> <button class="btn-block btn-secondary mt-3 mb-1 prev"><span class="fas fa-long-arrow-alt-left"></span>PREVIOUS</button>
+                        <input id="next2" name="next2" class="btn-block btn-primary mt-3 mb-1 next mt-4" type="button" value="Next" onclick="validate1(0)"/><i class="fas fa-long-arrow-alt-right"></i> <input type="button" class="btn-block btn-secondary mt-3 mb-1 prev">PREVIOUS<span class="fas fa-long-arrow-alt-left"></span>
                     </div>
                 </fieldset>
                 <fieldset>
@@ -416,8 +416,8 @@ button {
                         <div class="form-group"> <label class="form-control-label">Receiver Phone Number :</label> <span  id="showreceiverphone"></span> </div>
                         <div class="form-group"> <label class="form-control-label">Pickup Location :</label> <span  id="showpickuploc"></span> </div>
                         <div class="form-group"> <label class="form-control-label">Dropoff Location :</label> <span  id="showdropoffloc"></span> </div>
-                        <div class="form-group"> <label class="form-control-label">Item Description :</label><span  id="showitemdesc"></span></div> 
-                        <button id="next3" class="btn-block btn-primary mt-3 mb-1 next mt-4" onclick="validate2(0)">SUBMIT REQUEST<span class="fas fa-long-arrow-alt-right"></span></button> <button class="btn-block btn-secondary mt-3 mb-1 prev"><span class="fas fa-long-arrow-alt-left"></span>PREVIOUS</button>
+                        <div class="form-group"> <label class="form-control-label">Item Description :</label> <span  id="showitemdesc"></span></div> 
+                        <input type="button" id="next3" class="btn-block btn-primary mt-3 mb-1 next mt-4">SUBMIT REQUEST<span class="fas fa-long-arrow-alt-right"></span> <input type="button" class="btn-block btn-secondary mt-3 mb-1 prev">PREVIOUS<span class="fas fa-long-arrow-alt-left"></span>
                     </div>
                 </fieldset>
                 </form>
@@ -548,7 +548,7 @@ function showdetails()
     sumdetail4.innerHTML = v2;
     sumdetail5.innerHTML = v3;
 
-    console.log(v1, v2);
+    //console.log(v1, v2);
 }
 
 // function validate2(val) {
