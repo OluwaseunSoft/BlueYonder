@@ -402,32 +402,24 @@ button {
                         <h5 class="sub-heading mb-4">Where Do You Want Us Pick Up Your Item(s)</h5> <label class="text-danger mb-3">* Required</label>
                         <div class="form-group"> <label class="form-control-label">Pickup Location * :</label> <input type="text" id="pickup" name="pickup" placeholder="Pick Up Location" class="form-control" onblur="validate1(1)"> </div>
                         <div class="form-group"> <label class="form-control-label">Dropoff Location * :</label> <input type="text" id="dropoff" name="dropoff" placeholder="Drop Off Location" class="form-control" onblur="validate1(2)"> </div>
-                        <div class="form-group"> <label class="form-control-label">Item Description * :</label> <textarea type="text" id="item_desc" name="item_desc" rows="5" placeholder="Item Description" class="form-control" onblur="validate1(3)"> </textarea> </div>
+                        <div class="form-group"> <label class="form-control-label">Item Description * :</label> <textarea type="text" id="item_desc" name="item_desc" rows="5" placeholder="Item Description" class="form-control" onblur="validate1(3)"></textarea> </div>
                         <div class="form-group"> <label class="form-control-label">Receiver's Full Name * :</label> <input type="text" id="receiver_name" name="receiver_name" placeholder="Receiver's Full Name" class="form-control" onblur="validate1(4)"> </div>
                         <div class="form-group"> <label class="form-control-label">Receiver's Phone No. * :</label> <input type="text" id="receiverphone" name="receiverphone" placeholder="08012345678" class="form-control" onblur="validate1(5)"> </div>
                         <!-- <button id="next2" class="btn-block btn-primary mt-3 mb-1 next mt-4" onclick="validate1(0)">NEXT<span class="fas fa-long-arrow-alt-right"></span></button> <button class="btn-block btn-secondary mt-3 mb-1 prev"><span class="fas fa-long-arrow-alt-left"></span>PREVIOUS</button> -->
-                        <button id="next2" name="next2" class="btn-block btn-primary mt-3 mb-1 next mt-4" type="sumbit" onclick="validate1(0)">SUBMIT REQUEST<span class="fas fa-long-arrow-alt-right"></span></button> <button class="btn-block btn-secondary mt-3 mb-1 prev"><span class="fas fa-long-arrow-alt-left"></span>PREVIOUS</button>
+                        <input id="next2" name="next2" class="btn-block btn-primary mt-3 mb-1 next mt-4" type="button" value="Next" onclick="validate1(0)"/><i class="fas fa-long-arrow-alt-right"></i> <button class="btn-block btn-secondary mt-3 mb-1 prev"><span class="fas fa-long-arrow-alt-left"></span>PREVIOUS</button>
                     </div>
                 </fieldset>
-                <!-- <fieldset>
+                <fieldset>
                     <div class="form-card">
-                        <h5 class="sub-heading mb-4">Company Details</h5> <label class="text-danger mb-3">* Required</label>
-                        <div class="form-group"> <label class="form-control-label">Company Name * :</label> <input type="text" id="cname" name="cname" placeholder="" class="form-control" onblur="validate2(1)"> </div>
-                        <div class="form-group"> <label class="form-control-label">Zip Code * :</label> <input type="text" id="zip" name="zip" placeholder="" class="form-control" onblur="validate2(2)"> </div>
-                        <div class="form-group"> <label class="form-control-label">State * :</label> <input type="text" id="state" name="state" placeholder="" class="form-control" onblur="validate2(3)"> </div>
-                        <div class="form-group"> <label class="form-control-label">City * :</label> <input type="text" id="city" name="city" placeholder="" class="form-control" onblur="validate2(4)"> </div>
-                        <div class="form-group"> <label class="form-control-label">Shredding Job Size * :</label>
-                            <div class="select mb-3"> <select name="shred-info" class="form-control">
-                                    <option>NA</option>
-                                    <option>1-20 boxes</option>
-                                    <option>20-50 boxes</option>
-                                    <option>50-100 boxes</option>
-                                    <option>100+ boxes</option>
-                                </select> </div>
-                        </div> 
+                        <h5 class="sub-heading mb-4">Your Shipment Details</h5> 
+                        <div class="form-group"> <label class="form-control-label">Receiver Name :</label> <span  id="showreceivername"></span> </div>
+                        <div class="form-group"> <label class="form-control-label">Receiver Phone Number :</label> <span  id="showreceiverphone"></span> </div>
+                        <div class="form-group"> <label class="form-control-label">Pickup Location :</label> <span  id="showpickuploc"></span> </div>
+                        <div class="form-group"> <label class="form-control-label">Dropoff Location :</label> <span  id="showpickuploc"></span> </div>
+                        <div class="form-group"> <label class="form-control-label">Item Description :</label><span  id="showitemdesc"></span></div> 
                         <button id="next3" class="btn-block btn-primary mt-3 mb-1 next mt-4" onclick="validate2(0)">SUBMIT REQUEST<span class="fas fa-long-arrow-alt-right"></span></button> <button class="btn-block btn-secondary mt-3 mb-1 prev"><span class="fas fa-long-arrow-alt-left"></span>PREVIOUS</button>
                     </div>
-                </fieldset> -->
+                </fieldset>
                 </form>
                 <fieldset>
                     <div class="form-card">
