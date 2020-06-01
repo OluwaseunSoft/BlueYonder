@@ -261,9 +261,9 @@ button {
         $showordernumber = mysqli_real_escape_string($con, $showordernumber);
         
         $created_datetime = date("Y-m-d H:i:s");
-        $query = "INSERT into `shipment_log` (userId, vehicle_type, pickup_loc, dropoff_loc, item_desc, receiver_name, receiver_phone, created_date, orderId, shipment_status)".
+        $query = "INSERT into `shipment_log` (userId, vehicle_type, pickup_loc, dropoff_loc, item_desc, receiver_name, receiver_phone, created_date, orderId, cost, shipment_status)".
 
-                   "VALUES ('2', '$vehicle', '$pickup', '$dropoff', '$item_desc', '$receivername', '$receiverphone', '$created_datetime', '$showordernumber', 'pending')";
+                   "VALUES ('2', '$vehicle', '$pickup', '$dropoff', '$item_desc', '$receivername', '$receiverphone', '$created_datetime', '$showordernumber', '2000', 'pending')";
         $result = mysqli_query($con, $query) or die(mysqli_error($con));
         //$result = mysqli_query($con, $query) 
         if($result){
