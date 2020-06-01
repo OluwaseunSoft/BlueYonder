@@ -242,7 +242,7 @@ button {
 
        require('db.php');
 
-       if(isset($_REQUEST['next3']))
+       if(isset($_POST['submit']))
     {
         $pickup = stripslashes($_REQUEST['pickup']);
         $dropoff = stripslashes($_REQUEST['dropoff']);
@@ -257,13 +257,13 @@ button {
         $vehicle = stripslashes($_REQUEST['vehicle']);
         $receiverphone = mysqli_real_escape_string($con, $receiverphone);
         $vehicle = mysqli_real_escape_string($con, $vehicle);
-        //$showordernumber = stripslashes($_REQUEST['ordernumber']);
-        //$showordernumber = mysqli_real_escape_string($con, $showordernumber);
+        $showordernumber = stripslashes($_REQUEST['ordernumber1']);
+        $showordernumber = mysqli_real_escape_string($con, $showordernumber);
         
         $created_datetime = date("Y-m-d H:i:s");
         $query = "INSERT into `shipment_log` (userId, vehicle_type, pickup_loc, dropoff_loc, item_desc, receiver_name, receiver_phone, created_date, orderId, shipment_status)".
 
-                   "VALUES ('2', '$vehicle', '$pickup', '$dropoff', '$item_desc', '$receivername', '$receiverphone', '$created_datetime', '$ordernumber', 'pending')";
+                   "VALUES ('2', '$vehicle', '$pickup', '$dropoff', '$item_desc', '$receivername', '$receiverphone', '$created_datetime', '$showordernumber', 'pending')";
         $result = mysqli_query($con, $query) or die(mysqli_error($con));
         //$result = mysqli_query($con, $query) 
         if($result){
@@ -369,7 +369,7 @@ button {
     <div class="row d-flex justify-content-center">
         <div class="col-xl-5 col-lg-6 col-md-7">
             <div class="card b-0">
-                <form action="" method="post">
+                <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
                 <h3 class="heading">Create Shipment</h3>
                 <!-- <p class="desc">Fill out the form or call <span class="yellow-text">123 456 7891</span><br>to start protecting your business today!</p> -->
                 <ul id="progressbar" class="text-center">
@@ -421,6 +421,7 @@ button {
                         <div class="form-group"> <label class="form-control-label" style="font-weight: bold;">Dropoff Location :</label> <span  id="showdropoffloc"></span> </div>
                         <div class="form-group"> <label class="form-control-label" style="font-weight: bold;">Item Description :</label> <span  id="showitemdesc"></span></div> 
                         <div class="form-group"> <label class="form-control-label" style="font-weight: bold;">Vehicle Type :</label> <span  id="showvehicletype"></span></div> 
+                        <div class="form-group"> <label class="form-control-label" style="font-weight: bold;">Cost :</label> <span  id="showamount"></span></div> 
                         <div class="form-group"> <label class="form-control-label" style="font-weight: bold;">Order Number :</label> <span  id="showordernumber" name="showordernumber"><?Php
 function random_generator($digits){
 srand ((double) microtime() * 10000000);
@@ -429,7 +430,7 @@ $input = array ("A", "B", "C", "D", "E","F","G","H","I","J","K","L","M","N","O",
 "R","S","T","U","V","W","X","Y","Z");
 
 $random_generator="";// Initialize the string to store random numbers
-for($i=1;$i<$digits;$i++){ // Loop the number of times of required digits
+for($i=1;$i<=$digits;$i++){ // Loop the number of times of required digits
 
 if(rand(1,2) == 1){// to decide the digit should be numeric or alphabet
 // Add one random alphabet 
@@ -450,8 +451,12 @@ return $random_generator;
 
 $ordernumber = random_generator(10);
 echo $ordernumber;
-?></span></div> 
-                        <input type="submit" id="next3" class="btn-block btn-primary mt-3 mb-1 next mt-4" value="SUBMIT REQUEST"> <input type="button" class="btn-block btn-secondary mt-3 mb-1 prev" value="&larr; PREVIOUS">
+echo "<input type='hidden' name='ordernumber1' value='$ordernumber' />";
+?>
+</span>
+<!-- <input type="hidden" name="ordernumber1" value="<?php if(isset($ordernumber)){echo $ordernumber;} ?>" /> -->
+</div> 
+                        <input type="submit" name="submit" id="next3" class="btn-block btn-primary mt-3 mb-1 next mt-4" value="SUBMIT REQUEST"> <input type="button" class="btn-block btn-secondary mt-3 mb-1 prev" value="&larr; PREVIOUS">
                     </div>
                 </fieldset>
                
