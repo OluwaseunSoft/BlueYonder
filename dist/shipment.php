@@ -421,7 +421,7 @@ button {
                         <div class="form-group"> <label class="form-control-label" style="font-weight: bold;">Dropoff Location :</label> <span  id="showdropoffloc"></span> </div>
                         <div class="form-group"> <label class="form-control-label" style="font-weight: bold;">Item Description :</label> <span  id="showitemdesc"></span></div> 
                         <div class="form-group"> <label class="form-control-label" style="font-weight: bold;">Vehicle Type :</label> <span  id="showvehicletype"></span></div> 
-                        <div class="form-group"> <label class="form-control-label" style="font-weight: bold;">Cost :</label> <span  id="showamount"></span> <?php ?></div> 
+                        <div class="form-group"> <label class="form-control-label" style="font-weight: bold;">Cost :</label> <span  id="showamount"></span> <?php echo '1550'; ?></div> 
                         <div class="form-group"> <label class="form-control-label" style="font-weight: bold;">Order Number :</label> <span  id="showordernumber" name="showordernumber"><?Php
 function random_generator($digits){
 srand ((double) microtime() * 10000000);
