@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.js'></script>
+<link href='https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.css' rel='stylesheet' />
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -412,6 +414,14 @@ button {
                         <input id="next2" name="next2" class="btn-block btn-primary mt-3 mb-1 next mt-4" value="NEXT &rarr;" onclick="validate1(0)"/> <input type="button" class="btn-block btn-secondary mt-3 mb-1 prev" value="&larr; PREVIOUS">
                     </div>
                 </fieldset>
+                <div id='map' style='width: 400px; height: 300px;'></div>
+<script>
+mapboxgl.accessToken = 'pk.eyJ1Ijoib2x1d2FzZXVuYXp1cmUiLCJhIjoiY2tiZTMwOGw1MGhwdzJ6bnN4YTh4cXNrNiJ9.6mt87yQinx3qpxZ2e48Jaw';
+var map = new mapboxgl.Map({
+container: 'map',
+style: 'mapbox://styles/mapbox/streets-v11'
+});
+</script>
                 <fieldset>
                     <div class="form-card">
                         <h5 class="sub-heading mb-4">Your Shipment Details</h5> 
