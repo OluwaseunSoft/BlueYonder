@@ -421,6 +421,22 @@ var map = new mapboxgl.Map({
 container: 'map',
 style: 'mapbox://styles/mapbox/streets-v11'
 });
+
+function autocompleteSuggestionMapBoxAPI(inputParams, callback) {
+        geocodingClient.geocoding.forwardGeocode({
+            query: inputParams,
+            mode: "mapbox.places",
+            countries: ['Ng'],
+            types: ["place", "address", "district"],
+            autocomplete: true,
+            limit: 5           
+        })
+            .send()
+            .then(response => {
+                const match = response.body;
+                callback(match);
+            });
+    }
 </script>
                 <fieldset>
                     <div class="form-card">
