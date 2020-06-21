@@ -5,16 +5,35 @@
   <script src="https://js.arcgis.com/4.15/"></script>
     <!-- <script src='https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.js'></script> -->
     <script>
-    require(["esri/widgets/Search"],
-    function(Search){
-      const searchWidget = new Search({
+    require([
+      "esri/Map",
+      "esri/views/MapView",
+       "esri/widgets/Search"
+    ], function(Map, MapView, Search) {
+
+    var map = new Map({
+      basemap: "topo-vector"
+    });
+
+    var view = new MapView({
+      container: "viewDiv",
+      map: map,
+      center: [-118.80500,34.02700], // longitude, latitude , -118.80500, 34.02700
+      zoom: 13
+    });
+
+    var search = new Search({
         view: view
       });
-      view.ui.add(searchWidget, {
-        position: "top-right",
-        index: 2
+
+    var search1 = new Search({
+        view: view
       });
-    });
+
+      view.ui.add(search1, "top-right");
+      view.ui.add(search, "bottom-right");
+  });
+
 </script>
 <link href='https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.css' rel='stylesheet' />
         <meta charset="utf-8" />
