@@ -2,9 +2,9 @@
 <html lang="en">
     <head>
     <link rel="stylesheet" href="https://js.arcgis.com/4.15/esri/themes/light/main.css">
-  <script src="https://js.arcgis.com/4.15/"></script>
+  <!-- <script src="https://js.arcgis.com/4.15/"></script> -->
     <!-- <script src='https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.js'></script> -->
-    <script>
+    <!-- <script>
     require([
       "esri/Map",
       "esri/views/MapView",
@@ -34,8 +34,8 @@
       view.ui.add(search, "bottom-right");
   });
 
-</script>
-<link href='https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.css' rel='stylesheet' />
+</script> -->
+<!-- <link href='https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.css' rel='stylesheet' /> -->
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
