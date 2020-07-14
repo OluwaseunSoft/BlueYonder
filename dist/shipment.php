@@ -412,7 +412,6 @@ button {
                         <input id="next2" name="next2" class="btn-block btn-primary mt-3 mb-1 next mt-4" value="NEXT &rarr;" onclick="validate1(0)"/> <input type="button" class="btn-block btn-secondary mt-3 mb-1 prev" value="&larr; PREVIOUS">
                     </div>
                 </fieldset>
-                <div id='map' style='width: 400px; height: 300px;'></div>
 
                 <fieldset>
                     <div class="form-card">
